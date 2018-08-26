@@ -12,5 +12,22 @@ binary operator compareop;
     ...
 -   --v;
     ... when != v
--   if (!( \(v \| v >= 0 \) )) { break; } }
+-   if (!( v )) { break; } }
++ }
+
+@ decrement_with_compare @
+identifier v;
+constant start;
+expression limit, e;
+binary operator compareop;
+@@
+- v = start;
+  ...when != v 
+     when exists
++ for ( v = start; v compareop limit; --v ) {
+- while (1) {
+    ...
+-   --v;
+    ... when != v
+-   if (!( v compareop limit )) { break; } }
 + }
