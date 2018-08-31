@@ -38,10 +38,12 @@ if contents.start_with?(MARKER)
         .gsub(/\/\*JOIN\*\/(,)?\s*/, "\\1 ")
         .gsub("/*SPACE*/", " ")
         .gsub(/^(#{WS})(for .*) {/, "\\1\\2\n\\1{")
+        .gsub(/\/\*SKIP:(.*?)\*\//, "\\1")
 else
     print_lf START + \
         contents \
         .gsub(/^(#{WS})do#{WS}$/, "\\1while(1) /*OOO*/")
         .gsub(/\n#{WS}}(\n#{WS})while \((.*?)\);/, "\\1if (!(\\2) /*OOO*/ ) break; }")
         .gsub(/struct \w+_init.*?_init;/m, "/*YYY\\0YYY*/")
+        .gsub(/\b__fastcall|__cdecl|__stdcall\b/, "/*SKIP:\\0*/")
 end
