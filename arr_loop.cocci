@@ -3,7 +3,6 @@ identifier v;
 expression start;
 constant increment;
 expression limit;
-binary operator compareop;
 type cast;
 @@
 - v = &start;
@@ -21,9 +20,7 @@ type cast;
 @ arr_ptr @
 identifier v;
 expression start;
-constant increment;
 expression limit, idx;
-binary operator compareop;
 type cast;
 @@
 - v = start;

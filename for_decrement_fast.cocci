@@ -1,8 +1,6 @@
 @ decrement @
 identifier v;
 constant start;
-expression limit, e;
-binary operator compareop;
 @@
 - v = start;
   ...when != v 
